@@ -1,0 +1,288 @@
+:root {
+    --bg-color: #0f0f13;
+    --card-bg: #1a1a24;
+    --primary-color: #00ff9d;
+    /* Neon Green */
+    --secondary-color: #ff00ff;
+    /* Neon Magenta */
+    --text-color: #e0e0e0;
+    --muted-color: #888;
+    --border-color: #333;
+    --font-main: 'Mulmaru', sans-serif;
+    --font-mono: 'MulmaruMono', monospace;
+}
+
+@font-face {
+    font-family: 'Mulmaru';
+    src: url('Mulmaru.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MulmaruMono';
+    src: url('MulmaruMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+	letter-spacing: 0.0833em;  /* 1/12 비율 (약 8.3%) */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Typography & Glitch Effect */
+h1,
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+h1.glitch {
+    font-size: 6rem;
+    position: relative;
+    color: var(--primary-color);
+    text-shadow: 2px 2px var(--secondary-color);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--muted-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 1rem;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 4px 4px 0 var(--secondary-color);
+}
+
+.btn.primary:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--secondary-color);
+}
+
+.btn.secondary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn.secondary:hover {
+    background-color: rgba(0, 255, 157, 0.1);
+}
+
+/* Sections */
+.section {
+    margin: 4rem 0;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+    border-color: var(--primary-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Playground */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-switch .slider {
+    width: 50px;
+    height: 26px;
+    background-color: var(--border-color);
+    position: relative;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+.toggle-switch .slider:before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.2s;
+}
+
+.toggle-switch input:checked+.slider {
+    background-color: var(--primary-color);
+}
+
+.toggle-switch input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+    color: var(--primary-color);
+    border: 2px solid var(--border-color);
+    padding: 1rem;
+    font-family: var(--font-main);
+    font-size: 24px;
+    resize: vertical;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+}
+
+/* Download Grid */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.download-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.download-card p {
+    font-size: 1.25rem;   /* 글자 크기 (기본 1rem = 16px 정도) */
+}
+
+.download-card.mono .preview-text {
+    font-family: var(--font-mono);
+}
+
+.preview-text {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.8;
+    min-height: 3em;
+}
+
+.download-btn {
+    width: 100%;
+    margin: 0;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.download-btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+    color: var(--muted-color);
+}
+
+.creator {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    h1.glitch {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn {
+        margin: 0;
+        text-align: center;
+    }
+}
+
+/* 본문 전체를 감싸는 박스 */
+.card {
+    margin-bottom: 6rem; /* 박스 아래 여백 */
+}
+
+/* 본문 */
+.card p {
+    font-size: 1.5rem;   /* 글자 크기 (기본 1rem = 16px 정도) */
+    line-height: 1.75;    /* 줄 간격 (숫자가 클수록 줄 사이가 넓어짐) */
+    color: #aaaaaa;      /* 글자 색상 (약간 어두운 회색) */
+    margin-top: 1.5rem;
+    word-break: keep-all; /* 단어 중간에 줄바꿈 되지 않게 (한글에 좋음) */
+}
