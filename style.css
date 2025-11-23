@@ -40,7 +40,7 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
-	letter-spacing: 0.0833em;  /* 1/12 비율 (약 8.3%) */
+	letter-spacing: 0.0909em;  /* 1/11 비율 (약 9.1%) */
 }
 
 .container {
